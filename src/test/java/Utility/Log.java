@@ -15,10 +15,9 @@ public class Log {
     // This is to print log for the beginning of the test case, as we usually run so many test cases as a test suite
     public static void startTestCase(){
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-        Log.info("\n");
         Log.info("****************************************************************************************");
         Log.info("*******************   "+ "AppiumCrossPlatformIosAndroid" + " : " + timeStamp + "    **********************");
-       //Utility.Log.info("****************************************************************************************");
+        Utility.Log.info("****************************************************************************************");
     }
 
     //This is to print log for the ending of the test case
