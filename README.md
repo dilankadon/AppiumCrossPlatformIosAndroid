@@ -9,12 +9,9 @@ Example project for Appium cross platform testing of an iOS and an Android appli
 
     1. Clone this project and import as a maven project in IntelliJ or Eclipse.
     
-    2. Set the executionOS variable in the AppiumController class (src/test/java/AppiumServerBuilder/AppiumController.java) 
-    to Android or iOS depending on what platform you want to execute the example test on. 
+    2. Run Android tests : clean install -Denv.USER=ANDROID 
     
-    3. Run Android tests : clean install -Denv.USER=ANDROID 
-    
-    4. Run IOS tests : clean install -Denv.USER=IOS 
+    3. Run IOS tests : clean install -Denv.USER=IOS 
     
     * Cucumber-html reports location :  /target/site/cucumber-reports
 
