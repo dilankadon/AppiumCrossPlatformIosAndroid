@@ -29,8 +29,8 @@ public class TestRunner{
     public static void launchAppiumServer() throws MalformedURLException {
 
         DOMConfigurator.configure("log4j.xml");
-        AppiumController.instance.startAppiumServer();
         Log.startTestCase();
+        AppiumController.instance.startAppiumServer();
     }
 
     @AfterClass
