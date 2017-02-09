@@ -1,5 +1,6 @@
 package AppiumServerBuilder;
 
+import Utility.Log;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -19,12 +20,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class AppiumController {
 
-    public static OS executionOS = OS.ANDROID;
+    public static String executionOS = System.getProperty("platform");
 
-    public enum OS {
-        ANDROID,
-        IOS
-    }
     public static AppiumController instance = new AppiumController();
     public AppiumDriver driver;
 
@@ -43,13 +40,13 @@ public class AppiumController {
         try {
             executor.execute(command, resultHandler);
             Thread.sleep(5000);
-            //Utility.Log.info("Appium server started successfully.");
+            Log.info("Appium server started successfully.");
         } catch (IOException e) {
             e.printStackTrace();
-            //Utility.Log.error(e.getStackTrace().toString());
+            Log.error(e.getStackTrace().toString());
         } catch (InterruptedException e) {
             e.printStackTrace();
-            //Utility.Log.error(e.getStackTrace().toString());
+            Log.error(e.getStackTrace().toString());
         }
     }
 
@@ -57,7 +54,7 @@ public class AppiumController {
         String[] command = { "/usr/bin/killall", "-KILL", "node" };
         try {
             Runtime.getRuntime().exec(command);
-            //Utility.Log.info("Appium server stopped.");
+            Log.info("Appium server stopped.");
         } catch (IOException e) {
             e.printStackTrace();
             //Utility.Log.error(e.getStackTrace().toString());
@@ -69,7 +66,7 @@ public class AppiumController {
             return;
         }
         switch(executionOS){
-            case ANDROID:
+            case "ANDROID":
                 File classpathRoot = new File(System.getProperty("user.dir"));
                 File appDir = new File(classpathRoot, "/app/Android");
                 File app = new File (appDir, "Contacts.apk");
@@ -83,7 +80,7 @@ public class AppiumController {
                 capabilities.setCapability("appActivity", "com.jayway.contacts.MainActivity");
                 driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
                 break;
-            case IOS:
+            case "IOS":
                 classpathRoot = new File(System.getProperty("user.dir"));
                 appDir = new File(classpathRoot, "/app/iOS/");
                 app = new File(appDir, "ContactsSimulator.app");
