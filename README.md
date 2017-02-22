@@ -3,7 +3,11 @@ Example project for Appium cross platform testing of an iOS and an Android appli
 
 ###Pre-requisites:
     
-    Download and setup Appium (see http://appium.io/getting-started.html)
+    * Download and setup Appium (see http://appium.io/getting-started.html)
+    
+    * Install Xcode 8 or above
+    
+    * Insall Android SDK
 
 ###Instructions:
 
