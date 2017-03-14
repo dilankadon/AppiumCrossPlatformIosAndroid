@@ -3,4 +3,4 @@ language: java
 jdk:
     oraclejdk8
 
-script: install -Denv.USER=IOS
+script: mvn clean install -Denv.USER=IOS
