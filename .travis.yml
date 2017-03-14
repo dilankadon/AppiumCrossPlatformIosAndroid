@@ -1,6 +1,13 @@
-language: java
+language: android
+jdk: oraclejdk8
 
-jdk:
-    oraclejdk8
+android:
+  components:
+    - build-tools-25.0.1
 
-script: mvn clean install -Denv.USER=ANDROID
+before_script:
+  # Create and start emulator
+  - emulator -avd Android7
+  - ./wait_for_emulator
+
+script: mvn install -Denv.USER=ANDROID
