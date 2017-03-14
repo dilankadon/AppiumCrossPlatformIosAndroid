@@ -2,4 +2,4 @@ language: objective-c
 osx_image: xcode8
 xcode_sdk: iPhone 7
 
-script: mvn install -Denv.USER=ANDROID
+script: mvn install -Denv.USER=IOS
